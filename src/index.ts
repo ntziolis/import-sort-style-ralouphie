@@ -48,24 +48,28 @@ export default function(styleApi: IStyleAPI): IStyleItem[] {
         match: isNodeModule,
         sort: moduleName(naturally),
         sortNamedMembers: alias(unicode),
+        {separator: true},
     },
     // Installed NPM packages, sorted by module name.
     {
         match: and(isInstalledModule(__filename), isSpecial),
         sort: moduleName(naturally),
-        sortNamedMembers: alias(unicode),
+        sortNamedMembers: alias(unicode),      
+        {separator: true},
     },
     // Installed NPM packages, sorted by module name.
     {
         match: isInstalledModule(__filename),
         sort: moduleName(naturally),
         sortNamedMembers: alias(unicode),
+        {separator: true},
     },
     // Scoped modules (@-prefixed), sorted by module name.
     {
         match: isScopedModule,
         sort: moduleName(naturally),
         sortNamedMembers: alias(unicode),
+        {separator: true},
     },
     // All relative imports sorted by dot count, then module name.
     {
